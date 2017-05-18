@@ -75,8 +75,13 @@ if [ "$should_skip_autoexpand" = false ]; then
 cat <<\EOFE > $mountdir/etc/rc.local
 #!/bin/bash
 do_expand_rootfs() {
-  ROOT_PART=$(cat /proc/cmdline | tr -s ' ' '\n' | grep root= | cut -d '=' -f 2)
-  if [[ "$ROOT_PART" != /dev/mmcblk0* ]] ; then
+  ROOT_PART=$(cat /proc/cmdline | tr -s ' ' '\n' | grep root= | cut -d '=' -f 2-)
+  if [[ "$ROOT_PART" == /dev/mmcblk0* ]] ; then
+    PART_NUM=$(echo $ROOT_PART | cut -d 'p' -f 2)
+  elif [[ "$ROOT_PART" == *=* ]]; then
+    ROOT_PART=$(blkid -l -o device -t $ROOT_PART)
+    PART_NUM=$(echo $ROOT_PART | cut -d 'p' -f 2)
+  else
     echo $ROOT_PART is not an SD card...
     return 0
   fi
