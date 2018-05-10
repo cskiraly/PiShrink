@@ -58,6 +58,28 @@ Shrunk pi.img from 30G to 8,5G
 
 ```bash
 [user@localhost PiShrink]$ sudo ./pishrink.sh -i /dev/mmcblk0 pi.img
+Creating new /etc/rc.local
+e2fsck 1.42.13 (17-May-2015)
+Pass 1: Checking inodes, blocks, and sizes
+Pass 2: Checking directory structure
+Pass 3: Checking directory connectivity
+Pass 4: Checking reference counts
+Pass 5: Checking group summary information
+rootfs: 39362/1889056 files (0.1% non-contiguous), 394698/7802880 blocks
+resize2fs 1.42.13 (17-May-2015)
+resize2fs 1.42.13 (17-May-2015)
+Resizing the filesystem on /dev/loop0 to 404492 (4k) blocks.
+Begin pass 2 (max = 4)
+Relocating blocks             XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Begin pass 3 (max = 239)
+Scanning inode table          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Begin pass 4 (max = 3679)
+Updating inode references     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+The filesystem on /dev/loop0 is now 404492 (4k) blocks long.
+Copying /dev/mmcblk0 to pi.img...
+1628+1 records in
+1628+1 records out
+1707131392 bytes (1,7 GB, 1,6 GiB) copied, 27,15 s, 62,9 MB/s
 ```
 
 ## Contributing ##
