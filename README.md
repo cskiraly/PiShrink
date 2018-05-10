@@ -32,6 +32,7 @@ Shrunk pi.img from 30G to 3.1G
 ```
 ## Example: copying shrinking directly from SD ##
 
+```bash
 [user@localhost PiShrink]$ sudo  ./pishrink.sh /dev/mmcblk0 pi.img
 Copying /dev/mmcblk0 to pi.img...
 30528+0 records in
@@ -52,10 +53,12 @@ Begin pass 3 (max = 238)
 Scanning inode table          XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 The filesystem on /dev/loop0 is now 2187260 (4k) blocks long.
 Shrunk pi.img from 30G to 8,5G
+```
+## Example: shrinking directly on SD and copying ##
 
-## Example: shrinking directly on SD ad copying ##
-
-
+```bash
+[user@localhost PiShrink]$ sudo ./pishrink.sh -i /dev/mmcblk0 pi.img
+```
 
 ## Contributing ##
 If you find a bug please create an issue for it. If you would like a new feature added, you can create an issue for it but I can't promise that I will get to it.
