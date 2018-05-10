@@ -5,7 +5,7 @@ usage() { echo "Usage: $0 [-s] [-i] imagefile.img [newimagefile.img]"; exit -1; 
 should_skip_autoexpand=false
 force_inplace_and_copy_after=false
 
-while getopts ":s:i" opt; do
+while getopts ":si" opt; do
   case "${opt}" in
     s) should_skip_autoexpand=true ;;
     i) force_inplace_and_copy_after=true ;;
