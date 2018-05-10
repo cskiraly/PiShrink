@@ -68,7 +68,7 @@ if [ "$should_skip_autoexpand" = false ]; then
   mountdir=`mktemp -d`
   mount $loopback $mountdir
 
-  if [ `md5sum $mountdir/etc/rc.local | cut -d ' ' -f 1` != "c4eb22d9aa99915af319287d194d4529" ]; then
+  if [ `md5sum $mountdir/etc/rc.local | cut -d ' ' -f 1` != "2b696cdee908f288ce533f6046d0c269" ]; then
     echo Creating new /etc/rc.local
     mv $mountdir/etc/rc.local $mountdir/etc/rc.local.bak
     ###Do not touch the following 6 lines including EOF###
